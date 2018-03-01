@@ -1,8 +1,8 @@
 function legend(){
     // add a legend
     var w = 140, h = 300;
-    var lowColor = '#ffffd4';
-    var highColor = '#8c2d04';
+    var lowColor = '#feedde';
+    var highColor = '#a63603';
 
     var key = d3.select("body")
         .append("svg")
