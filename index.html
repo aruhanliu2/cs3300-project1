@@ -10,16 +10,30 @@
     </style>
 </head>
 <body>
+    <div id="title"></div>
     <svg id="map" height="600" width="900"></svg>
     
     <script>
+        var title = d3.select("#title")
+            .append("svg")
+            .attr("width", 900)
+            .attr("height", 50);
+            
+        title.append("text")
+            .attr("transform", "translate(460,40)")
+            .attr("text-anchor", "middle")
+            .style("font-size", 22)
+            .style("font-weight", "bolder")
+            .style("font-family", "sans-serif")
+            .text("Obesity Rate by State & Frequency of McDonalds per Capita");
+
         var svg = d3.select("#map");
         var projection = d3.geoAlbersUsa().scale(75);
         var pathGenerator = d3.geoPath().projection(projection);
         
         var states;
         var densityData, obesityData;
-        var obesityColors = ["#feedde","#a63603"];
+        var obesityColors = ["#ffffd4","#8c2d04"];
         var obesityScale = d3.scaleLinear().domain([21,36]).range(obesityColors);
 
         d3.queue()
